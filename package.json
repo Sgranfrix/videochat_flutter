@@ -1,0 +1,13 @@
+{
+  "name": "videochat_flutter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "dependencies": {
+    "agora-chat": "^1.3.1"
+  }
+}
