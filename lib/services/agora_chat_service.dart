@@ -3,10 +3,10 @@ import 'dart:math';
 import 'package:agora_chat_sdk/agora_chat_sdk.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'dart:js_interop' as js;
-import 'dart:js_interop_unsafe';
+//import 'dart:js_interop' as js;
+//import 'dart:js_interop_unsafe';
 
-import 'js_interop.dart'; // Necessario per accedere a globalContext e utilizzare operatori dinamici
+//import 'js_interop.dart'; // Necessario per accedere a globalContext e utilizzare operatori dinamici
 
 
 
@@ -25,7 +25,7 @@ class AgoraChatService {
   Function()? onLogout;
 
   // Creare un'istanza della classe JavaScript
-  final agoraChatClient = AgoraChatClient(appKey);
+  //final agoraChatClient = AgoraChatClient(appKey);
 
 
   /// Imposta il callId da utilizzare
@@ -43,7 +43,7 @@ class AgoraChatService {
       // 2. Crea il gruppo e prendi il vero groupId dalla risposta
       final createResp = await _createGroup(
         _callId,
-        randomName,
+        _callId,
         'Gruppo creato automaticamente',
         200,
         'admin',
@@ -76,9 +76,9 @@ class AgoraChatService {
       );
       //il problema è qui, stampa un solo FUNZIONOOOOO
 
-      //await ChatClient.getInstance.init(options);
+      await ChatClient.getInstance.init(options);
       // Inizializzare la connessione
-      agoraChatClient.init();
+      //agoraChatClient.init();
 
       // 5. Registra gli event handler
       ChatClient.getInstance.chatManager.addEventHandler(
@@ -113,20 +113,20 @@ class AgoraChatService {
 
       // 6. Login dell'utente
 
-      //await ChatClient.getInstance.loginWithAgoraToken(userId, token);
+      await ChatClient.getInstance.loginWithAgoraToken(userId, token);
       //_logMessage('Connesso come $userId');
 
       // Effettuare il login
-      agoraChatClient.login(userId, 'accessToken');
+      //agoraChatClient.login(userId, 'accessToken');
 
 
 
       // 7. Unisciti al gruppo usando il vero groupId
 
 
-      //await ChatClient.getInstance.groupManager.joinPublicGroup(groupId);
+      await ChatClient.getInstance.groupManager.joinPublicGroup(groupId);
       //_logMessage('Unito al gruppo ID: $groupId');
-      agoraChatClient.joinGroup(groupId);
+      //agoraChatClient.joinGroup(groupId);
 
 
 
@@ -207,7 +207,7 @@ class AgoraChatService {
 
       if (kIsWeb) {
         // Chiamata alla funzione JavaScript per la piattaforma web
-        agoraChatClient.sendGroupMessage(_createdGroupId, content);
+        //agoraChatClient.sendGroupMessage(_createdGroupId, content);
       } else {
         // Utilizzo del chatManager per piattaforme non web
         final message = ChatMessage.createTxtSendMessage(

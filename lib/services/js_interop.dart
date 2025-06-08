@@ -1,4 +1,4 @@
-@JS()
+/*@JS()
 library js_interop;
 
 import 'package:js/js.dart';
@@ -17,5 +17,7 @@ extension AgoraChatClientExtension on AgoraChatClient {
   external void joinGroup(String groupId);
   external void logout();
 }
+
+ */
 
 

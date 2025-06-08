@@ -38,9 +38,10 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   void initState() {
     super.initState();
     _initializeServices();
-    initializeAgora();
+    //initializeAgora();
   }
 
+  /*
   Future<void> initializeAgora() async {
     final engine = createAgoraRtcEngine();
     await engine.initialize(RtcEngineContext(appId: '02d00c24cf404556942ec5228d9f8dc4'));
@@ -60,6 +61,8 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
       options: ChannelMediaOptions(),
     );
   }
+
+   */
 
   Future<void> _requestPermissions() async {
     final statuses = await [

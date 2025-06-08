@@ -36,6 +36,16 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
+            TextField(
+              onSubmitted: (value) => _joinCall(context, value),
+              decoration: const InputDecoration(
+                labelText: 'Inserisci l\'ID (UUID o stringa)',
+                hintText: 'Es. 123e4567-e89b-12d3-a456-426614174000',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.text,
+            ),
+
             const SizedBox(height: 24),
 
             // Lista delle stanze disponibili
@@ -97,6 +107,11 @@ class HomeScreen extends StatelessWidget {
     final roomService = Provider.of<RoomService>(context, listen: false);
     final newId = roomService.createRoom();
     context.go('/call/$newId');
+  }
+
+  void _joinCall(BuildContext context, String id){
+    final roomService = Provider.of<RoomService>(context, listen: false);
+    context.go('/call/$id');
   }
 
   void _joinRoom(BuildContext context, String roomId) {

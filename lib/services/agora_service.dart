@@ -49,6 +49,8 @@ class AgoraService {
         },
       ));
 
+
+
       // Abilita video
       await _engine!.enableVideo();
       await _engine!.enableAudio();
